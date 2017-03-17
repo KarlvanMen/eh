@@ -97,6 +97,20 @@ export default {
             text-align: center;
         }
     }
+    .section-title {
+        border-bottom: 3px solid #eaeaea;
+        text-align: center;
+        margin-bottom: 1.33em;
+        margin-top: 2em;
+        h4{
+            color: #91c0c2;
+            margin-bottom: 0.5em;
+            text-transform: uppercase;
+        }
+        p{
+            display: none;
+        }
+    }
 }
 @media ($tablet) {
     .content{
