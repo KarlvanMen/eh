@@ -12,13 +12,16 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+<style lang="scss">
+body{
+  margin: 0;
+}
+#app{
+  font-size: 16px;
+  line-height: 1.8;
+  font-family: "Open Sans","HelveticaNeue","Helvetica Neue",sans-serif;
+  color: #464646;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  -webkit-text-size-adjust: 100%;
 }
 </style>

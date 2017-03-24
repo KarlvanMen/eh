@@ -1,10 +1,10 @@
 <template lang="pug">
   .links
-    .section(v-for="section in nav")
+    .section(v-for="(section, index) in nav" v-bind:class="['section-' + index]")
         h4 {{section.title}}
         .undersection(v-if='section.icon' class="social")
           a(v-for="icon in section.content") 
-            i.fa(:class="['fa-' + icon.title]" aria-hidden="true")
+            i.fa(:class="['fa-' + icon.title]" aria-hidden="false")
         .undersection(v-else)
           a(v-for="sub in section.content") {{sub.title}}
     .copyright
@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import 'vue-awesome/icons'
 export default {
 
   name: 'links',
@@ -76,7 +75,7 @@ export default {
               target: '_top'
             },
             {
-              title: 'vaicā pēc pielāgotajām kāzu paketēm'
+              title: 'Vaicā pēc pielāgotajām kāzu paketēm'
             },
             {
               title: ' '
@@ -115,6 +114,7 @@ export default {
     .social{
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
     }
     .fa{
       color: #fbd219;
@@ -122,7 +122,12 @@ export default {
       width: 1em;
       font-size: 2em;
       text-align: center;
-      margin-right: 0.25em;
+      margin: 0 0.5em;
+    }
+    &.section-2{
+      a{
+        text-transform: initial;
+      }
     }
   }
   .copyright{

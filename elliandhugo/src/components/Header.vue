@@ -8,8 +8,8 @@
             h4(v-bind:class="{ more: checkUnder(value) }") {{key}}
             .nav-under-section
               h4.nav-under(v-for="opt in value") {{opt}}
-      .logo
-        .logo-container
+      .logo        
+        router-link.logo-container(tag="div" to="/")
     .header-desc
       .logo
         .logo-container
@@ -131,7 +131,6 @@ h4{
     background-color: #fff8e2;
     .title{
       padding: 10px 20px;
-      font-size: 1.2em;
       font-weight: bold;
       &:before{
         content: '';
@@ -196,7 +195,7 @@ h4{
       }
       &.shown{  
         transition-timing-function: ease-out;
-        max-height: 1000px;   
+        max-height: 10000px;   
         .nav-title{
           h4{
             margin: 1.33em 0;

@@ -3,8 +3,52 @@
     .section-title
         h4 Izlase
         p Skatīt visu piedāvājumu
-    .products
-        .product(v-for="obj in misc")
+    .products        
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+            p(v-html="price(obj.options)")
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+            p(v-html="price(obj.options)")
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+            p(v-html="price(obj.options)")
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+            p(v-html="price(obj.options)")
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+            p(v-html="price(obj.options)")
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+            p(v-html="price(obj.options)")
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+            p(v-html="price(obj.options)")
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+            p(v-html="price(obj.options)")
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+            p(v-html="price(obj.options)")
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+            p(v-html="price(obj.options)")
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+            p(v-html="price(obj.options)")
+        router-link.product(v-for="obj in misc" v-bind:key="obj.id" tag="div" v-bind:to="{ name: 'Item', params: { id: obj.id }}")
             .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
             p(v-for="obj in misc" ) {{obj.title}}
             p(v-html="price(obj.options)")
@@ -16,8 +60,16 @@
         .collection(v-for="obj in misc")
             .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
             p(v-for="obj in misc" ) {{obj.title}}
+        .collection(v-for="obj in misc")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+        .collection(v-for="obj in misc")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
+        .collection(v-for="obj in misc")
+            .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
+            p(v-for="obj in misc" ) {{obj.title}}
         .view-all Skatīt visas kolekcijas
-  </div>
 </template>
 
 <script>
