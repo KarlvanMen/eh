@@ -13,8 +13,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import 'components/variables.scss';
 body{
   margin: 0;
+}
+a{
+  text-decoration: none;
+  color: inherit;
 }
 #app{
   font-size: 16px;
@@ -23,5 +28,15 @@ body{
   color: #464646;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.content{
+  padding: 0 10px;
+}
+@media ($tablet) {
+  .content{
+    padding: 0 30px;
+  }
 }
 </style>

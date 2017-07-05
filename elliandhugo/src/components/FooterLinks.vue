@@ -3,10 +3,11 @@
     .section(v-for="(section, index) in nav" v-bind:class="['section-' + index]")
         h4 {{section.title}}
         .undersection(v-if='section.icon' class="social")
-          a(v-for="icon in section.content") 
+          a(v-for="icon in section.content" v-bind:href="icon.link" target="_blank") 
             i.fa(:class="['fa-' + icon.title]" aria-hidden="false")
         .undersection(v-else)
-          a(v-for="sub in section.content") {{sub.title}}
+          .link(v-for="sub in section.content")
+            router-link(:to="{path: sub.link}") {{sub.title}}
     .copyright
         p Copyright © 2017, Elli&Hugo
 </template>
@@ -24,23 +25,23 @@ export default {
           content: [
             {
               title: 'par mums',
-              link: '#'
+              link: '/about'
             },
             {
               title: 'biežāk uzdotie jautājumi',
-              link: '#'
+              link: '/buj'
             },
             {
               title: 'vīzija un misija',
-              link: '#'
+              link: '/misija-vizija'
             },
             {
-              title: 'domnīca',
-              link: '#'
+              title: 'lasītava',
+              link: '/blogs'
             },
             {
               title: 'izplatītājiem',
-              link: '#'
+              link: '/izplatitajiem'
             }
           ]
         },
@@ -50,15 +51,15 @@ export default {
           content: [
             {
               title: 'facebook',
-              link: '#'
+              link: 'https://www.facebook.com/elliandhugo/?fref=ts'
             },
             {
               title: 'instagram',
-              link: '#'
+              link: 'https://www.instagram.com/elliandhugo/'
             },
             {
               title: 'pinterest',
-              link: '#'
+              link: 'https://www.pinterest.com/dacemortukane/elli-hugo/'
             }
           ]
         },
@@ -85,7 +86,7 @@ export default {
             },
             {
               title: 'www.elliandhugo.etsy.com',
-              link: 'www.elliandhugo.etsy.com'
+              link: 'https://www.etsy.com/shop/elliandhugo?ref=pr_shop_more'
             }
           ]
         }
@@ -107,9 +108,11 @@ export default {
       text-transform: uppercase;
     }
     a{
-      display: block;
+      display: inline-block;
       text-transform: uppercase;
       font-size: 0.8em;
+      text-decoration: none;
+      color: inherit;
     }
     .social{
       display: flex;
@@ -118,8 +121,6 @@ export default {
     }
     .fa{
       color: #fbd219;
-      height: 1em;
-      width: 1em;
       font-size: 2em;
       text-align: center;
       margin: 0 0.5em;
@@ -136,15 +137,28 @@ export default {
     font-size: 0.8em;
     text-align: center;
   }
-  @media ($tablet){
+}
+@media ($tablet){
+  .links{
     display: flex;
     flex-wrap: wrap;   
     text-align: left; 
-    padding: 0 10px;
+    padding: 0 30px;
     .section{
-      width: 50%;
+      width: 33%;
       a{
         padding: .33em 0;
+      }
+      &.section-1{
+        .social{
+          justify-content: flex-start;
+          a{            
+            margin-right: 15px;
+          }
+          .fa{
+            margin: 0;
+          }
+        }
       }
     }
   }

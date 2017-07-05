@@ -1,31 +1,18 @@
 <template lang="pug">
-  .content
-    .section-title
-        h3 Izlase
-        p                 
-            router-link(:to="{ name: 'AllCollections', params: { collection: 'allitems' }}") Skatīt visu piedāvājumu
+ .content
+    .header
+        h1.section-header-title Visi produkti
     .products        
         .product(v-for="obj in misc")
-           router-link(:to="{ name: 'Item', params: { id: obj.id }}")
+            router-link(:to="{ name: 'Item', params: { id: obj.id }}")
                 .cover-img( v-bind:style="{ backgroundImage: 'url(' + obj.coverImg + ')' }" )
                 p {{obj.title}}
                 p(v-html="price(obj.options)")
-        .view-all Skatīt visu piedāvājumu
-    .section-title
-        h3 Kolekcijas
-        p
-            router-link(:to="{ name: 'AllCollections', params: { collection: 'allcollections' }}") Skatīt visas kolekcijas
-    .collections
-        .collection(v-for="n in 4")
-           router-link(:to="{ name: 'AllCollections', params: {collection: n }}")            
-                .cover-img( v-bind:style="{ backgroundImage: 'url(' + misc[n].coverImg + ')' }" )
-                p {{misc[n].title}}
-        .view-all Skatīt visas kolekcijas
 </template>
 
 <script>
 export default {
-  name: 'content',
+  name: 'allitems',
   data () {
     return {
       misc: null
@@ -139,9 +126,6 @@ export default {
                 margin: 0;
             }
         }
-    }
-    .view-all{
-        display: none;
     }
 }
 </style>
