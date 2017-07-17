@@ -15,6 +15,7 @@ import Login from '@/components/Login'
 import Header from '@/components/Header'
 import FooterLinks from '@/components/FooterLinks'
 import HeaderAd from '@/components/HeaderAd'
+import ItemAd from '@/components/ItemAd'
 import FooterAd from '@/components/FooterAd'
 import NotFound from '@/components/404'
 import Pub from '@/components/Publish'
@@ -146,6 +147,15 @@ export default new Router({
       name: 'Login',
       components: {
         default: Login,
+        header: HeaderAd,
+        footerLinks: FooterAd
+      }
+    },
+    {
+      path: '/adlog/item/:id',
+      name: 'ItemAd',
+      components: {
+        default: ItemAd,
         header: HeaderAd,
         footerLinks: FooterAd
       }

@@ -19,7 +19,7 @@
             router-link(:to="{ name: section.name, params: {collection: section.params }}" @mouseover.this="displayMore3($event)") {{section.title}}          
             .nav-under-section
               h4(v-for="subj in section.under") 
-                router-link(:to="{ name: subj.name, params: {collection: subj.url }}") {{subj.title}}
+                router-link(:to="{ name: subj.name, params: {collection: subj.params }}") {{subj.title}}
 </template>
 
 <script>

@@ -15,8 +15,8 @@
         h3 Kolekcijas
         p
             router-link(:to="{ name: 'AllCollections', params: { collection: 'allcollections' }}") Skatīt visas kolekcijas
-    .collections
-        .collection(v-for="n in 4")
+    .collections(v-if="misc")
+        .collection(v-for="n in 4" )
            router-link(:to="{ name: 'AllCollections', params: {collection: n }}")            
                 .cover-img( v-bind:style="{ backgroundImage: 'url(' + misc[n].coverImg + ')' }" )
                 p {{misc[n].title}}

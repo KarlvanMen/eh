@@ -1,12 +1,38 @@
 <template lang="pug">
-  .footer
-    small Ar mani atkal runā kaijas
+  .footer(v-if="getLoginInfo")
+    small(v-if="joke") {{ joke.joke }}
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
 
-  name: 'FooterAd'
+  name: 'FooterAd',
+  data () {
+    return {
+      joke: null,
+      show: false
+    }
+  },
+  computed: {
+    // mix the getters into computed with object spread operator
+    ...mapGetters([
+      'getLoginInfo'
+    ])
+  },
+  methods: {
+    get: function () {
+      this.$http.get('https://api.icndb.com/jokes/random').then((response) => {
+        this.joke = response.body.value
+        console.log(this.joke.joke)
+      }, (response) => {
+        console.log(response)
+      });
+    }
+  },
+  mounted () {
+    this.get()
+  }
 }
 </script>
 
@@ -16,7 +42,6 @@ export default {
 .footer {
   text-align: center;
   font-style: italic;
-  display: none;
   &.active{
     display: block;
   }

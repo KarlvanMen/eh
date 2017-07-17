@@ -54,6 +54,7 @@ $first['img'] = array(
     'https://cdn.shopify.com/s/files/1/0187/0182/products/MTS100_DIY_1024x1024.jpg?v=1443114269'
 );
 $first['description'] = 'Mr and Mrs signs for the wedding sweetheart table are freestanding in a script font; our signs are extra stable at 1" thick which means they will not fall over. These Mr & Mrs wedding signs are great for rustic wedding decor or modern weddings and even make a beautiful decoration for your home! Purchase this listing for the script font freestanding Mr & Mrs sign set.';
+$first['date'] = '2017-07-11';
 
 $arr = array();
 
