@@ -1,5 +1,6 @@
 <template lang="pug">
   .admin(v-if="getLoginInfo" v-bind:class="{ wider: getLoginInfo }")
+    HeaderAd
     .products        
         .product(v-for="obj in misc")
            router-link(:to="{ name: 'ItemAd', params: { id: obj.id }}")
@@ -7,6 +8,7 @@
                 .info
                   p {{obj.title}}
                   p.date Pievienošanas datums: {{obj.date}}
+    FooterAd
   .admin(v-else)
     .loginform
       form(v-on:submit="onSubmit")
@@ -18,12 +20,19 @@
 <script>
 import {mapGetters} from 'vuex'
 
+import HeaderAd from './HeaderAd.vue'
+import FooterAd from './FooterAd.vue'
+
 export default {
   name: 'Login',
   data () {
     return {
       misc: null
     }
+  },
+  components: {
+    HeaderAd,
+    FooterAd
   },
   mounted () {
     this.log = this.$store.state.loggedIn

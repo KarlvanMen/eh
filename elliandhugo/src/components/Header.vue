@@ -35,9 +35,9 @@ export default {
           under: false
         },
         {
-          title: 'Kāzas',
+          title: 'Kāzu dienai',
           name: 'AllCollections',
-          params: 'kazas',
+          params: 'kazudienai',
           under: [
             {
               title: 'pieņemšana',
@@ -45,177 +45,154 @@ export default {
               params: 'kazas',
             },
             {
-              title: 'mr. & mrs. zīmes',
-              name: 'AllCollections',
-              params: 'mrmrszimes',
-            },
-            {
-              title: 'galdiņu numuri',
-              name: 'AllCollections',
-              params: 'galdinunumuri',
-            },
-            {
-              title: 'nozīmes',
-              name: 'AllCollections',
-              params: 'nozimes',
-            },
-            {
-              title: 'krēslu zīmes',
-              name: 'AllCollections',
-              params: 'kresluzimes',
-            },
-            {
-              title: 'viesu grāmatas',
-              name: 'AllCollections',
-              params: 'viesugramatas',
-            },
-            {
-              title: 'vecmeitu svinības',
-              name: 'AllCollections',
-              params: 'vecmeitusvinibas',
-            },
-            {
-              title: 'kāzu dāvanas',
-              name: 'AllCollections',
-              params: 'kazudavanas',
-            },
-            {
-              title: 'kūku dekori',
-              name: 'AllCollections',
-              params: 'kukudekori',
-            },
-            {
-              title: 'stāvošas zīmes',
-              name: 'AllCollections',
-              params: 'stavosaszimes',
-            },
-            {
-              title: 'personalizēts',
-              name: 'AllCollections',
-              params: 'personalizets',
-            }
-          ]
-        },
-        {
-          title: 'notikumi',
-          name: 'AllCollections',
-          params: 'notikumi',
-          under: [
-            {
-              title: 'kāzas',
+              title: 'Kūku dekori',
               name: 'AllCollections',
               params: 'kazas',
             },
             {
-              title: 'fotografēšanās',
+              title: 'Dekori ziedu pušķiem',
               name: 'AllCollections',
-              params: 'fotografesanas',
+              params: 'kazas',
             },
-            {
-              title: 'apģērbs',
-              name: 'AllCollections',
-              params: 'apgerbs',
-            },
-            {
-              title: 'vecmeitu svinības',
-              name: 'AllCollections',
-              params: 'vecmeitusvinibas',
-            },
-            {
-              title: 'apraudzīšana',
-              name: 'AllCollections',
-              params: 'apraudzisana',
-            },
-            {
-              title: 'dzimšanas dienas',
-              name: 'AllCollections',
-              params: 'dzimsanasdienas',
-            },
-            {
-              title: 'brīvdienas',
-              name: 'AllCollections',
-              params: 'brivdienas',
-            },
-            {
-              title: 'vairāk!',
-              name: 'AllCollections',
-              params: 'all',
-            }
           ]
         },
         {
-          title: 'dāvanas',
+          title: 'Dekori',
           name: 'AllCollections',
-          params: 'davanas',
+          params: 'kazudienai',
           under: [
             {
-              title: 'pleca somas',
+              title: 'Kūku dekori',
               name: 'AllCollections',
-              params: 'plecasomas',
+              params: 'kazas',
             },
             {
-              title: 'mājas dekori',
+              title: 'Sienas dekori',
               name: 'AllCollections',
-              params: 'majasdekori',
+              params: 'kazas',
             },
             {
-              title: 'ierāmmējamā māksla',
+              title: 'Dekori ziedu pušķiem',
               name: 'AllCollections',
-              params: 'ieramejamamaksla',
+              params: 'kazas',
             },
             {
-              title: 'spilvendrānas',
+              title: 'Foto rāmīši',
               name: 'AllCollections',
-              params: 'spilvendranas',
+              params: 'kazas',
             },
-            {
-              title: 'krekli',
-              name: 'AllCollections',
-              params: 'krekli',
-            },
-            {
-              title: 'krūzītes',
-              name: 'AllCollections',
-              params: 'kruzites',
-            },
-            {
-              title: 'vairāk',
-              name: 'AllCollections',
-              params: 'all',
-            },
-            {
-              title: 'dāvanas zem 25€',
-              name: 'AllCollections',
-              params: 'zem25',
-            }
           ]
         },
         {
-          title: 'vairāk',
+          title: 'Dāvanas',
           name: 'AllCollections',
-          params: 'all',
+          params: 'kazudienai',
           under: [
             {
-              title: 'par mums',
-              name: 'About',
-              params: ''
-            },
-            {
-              title: 'pielāgošana',
-              name: 'Custom',
-              params: ''
-            },
-            {
-              title: 'Publikācijas',
-              name: 'Press',
-              params: ''
-            },
-            {
-              title: 'skatīt visus produktus',
+              title: 'Kristībām',
               name: 'AllCollections',
-              params: 'allitems'
-            }
+              params: 'kazas',
+            },
+            {
+              title: 'Ziemassvētkiem',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Mīļotajam cilvēkam',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Kāzām',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
           ]
+        },
+        {
+          title: 'Mājām',
+          name: 'AllCollections',
+          params: 'kazudienai',
+          under: [
+            {
+              title: 'Bērnistaba',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Foto albumi',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Atmiņu lādītes',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Bērnu metriņš',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Māju nosaukumu izkārtnes',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Sienas pakaramie',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Virtuvei',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+          ]
+        },
+        {
+          title: 'Citi',
+          name: 'AllCollections',
+          params: 'kazudienai',
+          under: [
+            {
+              title: 'Ādas telefonu aizsargpaneļi',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Grāmatzīmes',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Ādas aproces',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Paliktnīši',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Zobu fejai',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+            {
+              title: 'Specpasūtījumi',
+              name: 'AllCollections',
+              params: 'kazas',
+            },
+          ]
+        },
+        {
+          title: 'Uzņēmumiem',
+          name: 'AllCollections',
+          params: 'kazudienai'
         },
       ],
       menu: false

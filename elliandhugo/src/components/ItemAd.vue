@@ -1,50 +1,57 @@
 <template lang="pug">
-  .content
-    form(v-on:submit="onSubmit" enctype="multipart/form-data")
-      h2 Nosaukums
-      input(id='title' type="text" name="pied_title" placeholder='' v-bind:value="single.title") 
-      h2 Apraksts
-      textarea(v-on:keyup="textAreaAdjust" id='desc' name="pied_title" cols="1" v-bind:value="single.description")
-      h2 Tagi
-      small 
-        i Atdalīti ar ";"
-      input(id='tags' type="text" name="pied_title" placeholder='')
-      h2 Bildes
-      label(for="images" class="images-label") Pievienot bildes
-      input(type="file" name="pied_img[]" id="images" value='Pievienot bildes' accept="image/*" multiple v-on:change="readUrl()")
-      #imageHolder
-        .desc-img(v-for='image in single.img')
-          img(v-bind:src='image')
-          .delete(onclick="this.parentElement.parentElement.removeChild(this.parentElement)") X
-      h2 Opcijas
-      fieldset(id="options")
-        .opt(v-for="opt, index in single.options")
-          p.num {{index + 1}})
-          input.options.options-name(type="text" name="pied_opt[][name]" placeholder='' v-bind:value="opt.name")
-          input.options(type="number" name="pied_opt[][price]" placeholder='' v-bind:value="opt.price")
-          p €
-          p.delete(v-on:click="removeOpt(index)") X
-      label(for="options" id="options-label" v-on:click="addOpt()") Pievienot opcijas
-      .finito-button
-        input(type="submit" class="submit" value="Publicēt")
-        input(type="button" class="submit cancel" value="Atsaukt")
-    .main-prod
-      .cover-img( v-bind:style="{ 'background-image': 'url(' + single.coverImg + ')' }" )
-      .prod-desc
-        h1.prod-title {{single.title}}
-        p.select-label {{label}}
-        select(v-model="selected")
-          option(v-for="opt, index in single.options" v-bind:value="opt.price") {{opt.name}}
-        .price {{ selected }} €
-    .item-images
-      .item-img(v-for='img in single.img' v-on:click='changeCover(img)' v-bind:style="{ 'background-image': 'url(' + img + ')' }")
-    .description
-      h3.title Apraksts
-      p {{single.description}}
-    
+  .app
+    HeaderAd
+    .content
+      form(v-on:submit="onSubmit" enctype="multipart/form-data")
+        h2 Nosaukums
+        input(id='title' type="text" name="pied_title" placeholder='' v-bind:value="single.title") 
+        h2 Apraksts
+        textarea(v-on:keyup="textAreaAdjust" id='desc' name="pied_title" cols="1" v-bind:value="single.description")
+        h2 Tagi
+        small 
+          i Atdalīti ar ";"
+        input(id='tags' type="text" name="pied_title" placeholder='')
+        h2 Bildes
+        label(for="images" class="images-label") Pievienot bildes
+        input(type="file" name="pied_img[]" id="images" value='Pievienot bildes' accept="image/*" multiple v-on:change="readUrl()")
+        #imageHolder
+          .desc-img(v-for='image in single.img')
+            img(v-bind:src='image')
+            .delete(onclick="this.parentElement.parentElement.removeChild(this.parentElement)") X
+        h2 Opcijas
+        fieldset(id="options")
+          .opt(v-for="opt, index in single.options")
+            p.num {{index + 1}})
+            input.options.options-name(type="text" name="pied_opt[][name]" placeholder='' v-bind:value="opt.name")
+            input.options(type="number" name="pied_opt[][price]" placeholder='' v-bind:value="opt.price")
+            p €
+            p.delete(v-on:click="removeOpt(index)") X
+        label(for="options" id="options-label" v-on:click="addOpt()") Pievienot opcijas
+        .finito-button
+          input(type="submit" class="submit" value="Publicēt")
+          input(type="button" class="submit cancel" value="Atsaukt")
+      .main-prod
+        .cover-img( v-bind:style="{ 'background-image': 'url(' + single.coverImg + ')' }" )
+        .prod-desc
+          h1.prod-title {{single.title}}
+          p.select-label {{label}}
+          select(v-model="selected")
+            option(v-for="opt, index in single.options" v-bind:value="opt.price") {{opt.name}}
+          .price {{ selected }} €
+      .item-images
+        .item-img(v-for='img in single.img' v-on:click='changeCover(img)' v-bind:style="{ 'background-image': 'url(' + img + ')' }")
+      .description
+        h3.title Apraksts
+        p {{single.description}}
+    FooterAd
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
+import HeaderAd from './HeaderAd.vue'
+import FooterAd from './FooterAd.vue'
+
 export default {
   name: 'item',
   data () {
@@ -57,8 +64,18 @@ export default {
       label: 'Krāsu izvēle'
     }
   },
+  components: {
+    HeaderAd,
+    FooterAd
+  },
   created () {
     this.fetchData()
+  },
+  computed: {
+    // mix the getters into computed with object spread operator
+    ...mapGetters([
+      'getLoginInfo'
+    ])
   },
   watch: {
     // call again the method if the route changes

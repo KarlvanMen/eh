@@ -1,24 +1,16 @@
 <template lang="pug">
-  .footer(v-if="getLoginInfo")
-    small(v-if="joke") {{ joke.joke }}
+  .footer
+    small(v-if="joke" v-html="joke.joke")
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
 export default {
-
   name: 'FooterAd',
   data () {
     return {
       joke: null,
       show: false
     }
-  },
-  computed: {
-    // mix the getters into computed with object spread operator
-    ...mapGetters([
-      'getLoginInfo'
-    ])
   },
   methods: {
     get: function () {

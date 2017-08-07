@@ -1,38 +1,46 @@
 <template>
-    <div class="content">
-        <form v-on:submit="onSubmit" enctype="multipart/form-data">
-            <h2>Nosaukums</h2>
-            <input id='title' type="text" name="pied_title" placeholder=''/>
-            <h2>Apraksts</h2>
-            <textarea v-on:keyup="textAreaAdjust" id='desc' name="pied_title" cols="1"></textarea>
-            <h2>Tagi</h2>
-            <small><i>Atdalīti ar ";"</i></small>
-            <input id='tags' type="text" name="pied_title" placeholder=''/>
-            <h2>Bildes</h2>   
-            <label for="images" class="images-label">Pievienot bildes</label> 
-            <input type="file" name="pied_img[]" id="images" value='Pievienot bildes' accept="image/*" multiple v-on:change="readUrl()">
-            <p id="imageHolder"></p>    
-            <h2>Opcijas</h2> 
-            <fieldset id="options">
-                <div class="opt">
-                    <p class="num">1)</p>
-                    <input class='options options-name' type="text" name="pied_opt[][name]" placeholder=''/>
-                    <input class='options' type="number" name="pied_opt[][price]" placeholder=''/>
-                    <p>€</p>
-                    <p class="delete hidden">X</p>
+    <div>
+        <HeaderAd></HeaderAd>
+        <div class="content">
+            <form v-on:submit="onSubmit" enctype="multipart/form-data">
+                <h2>Nosaukums</h2>
+                <input id='title' type="text" name="pied_title" placeholder=''/>
+                <h2>Apraksts</h2>
+                <textarea v-on:keyup="textAreaAdjust" id='desc' name="pied_text" cols="1"></textarea>
+                <h2>Tagi</h2>
+                <small><i>Atdalīti ar ";"</i></small>
+                <input id='tags' type="text" name="pied_title" placeholder=''/>
+                <h2>Bildes</h2>   
+                <label for="images" class="images-label">Pievienot bildes</label> 
+                <input type="file" name="pied_img[]" id="images" value='Pievienot bildes' accept="image/*" multiple v-on:change="readUrl()">
+                <p id="imageHolder"></p>    
+                <h2>Opcijas</h2> 
+                <fieldset id="options">
+                    <div class="opt">
+                        <p class="num">1)</p>
+                        <input class='options options-name' type="text" name="pied_opt[name]" placeholder=''/>
+                        <input class='options' type="number" name="pied_opt[price]" placeholder=''/>
+                        <p>€</p>
+                        <p class="delete hidden">X</p>
+                    </div>
+                </fieldset>
+                <label for="options" id="options-label" v-on:click="addOpt()">Pievienot opcijas</label>                                
+                <div class="finito-button">
+                    <input type="submit" class="submit" value="Publicēt">
+                    <input type="button" class="submit cancel" value="Atsaukt">
                 </div>
-            </fieldset>
-            <label for="options" id="options-label" v-on:click="addOpt()">Pievienot opcijas</label>                                
-            <div class="finito-button">
-                <input type="submit" class="submit" value="Publicēt">
-                <input type="button" class="submit cancel" value="Atsaukt">
-            </div>
-        </form>
+            </form>
+        </div>
+        <FooterAd></FooterAd>
     </div>
 </template>
 
 <script>
 
+import {mapGetters} from 'vuex'
+
+import HeaderAd from './HeaderAd.vue'
+import FooterAd from './FooterAd.vue'
 
 export default {
   name: 'pub',
@@ -40,6 +48,16 @@ export default {
     return {
       misc: null
     }
+  },
+  components: {
+    HeaderAd,
+    FooterAd
+  },
+  computed: {
+    // mix the getters into computed with object spread operator
+    ...mapGetters([
+      'getLoginInfo'
+    ])
   },
   methods: {
     readUrl: function () {
@@ -80,11 +98,11 @@ export default {
         nameHolder.classList.add("options")
         nameHolder.classList.add("options-name")
         nameHolder.type = "text"
-        nameHolder.name = "pied_opt[][name]"  
+        nameHolder.name = "pied_opt[name]"  
         let priceHolder = document.createElement("input")
         priceHolder.classList.add("options")
         priceHolder.type = "number"
-        priceHolder.name = "pied_opt[][price]"
+        priceHolder.name = "pied_opt[price]"
         let euro = document.createElement('p')
         euro.innerHTML = "€"
         let del = document.createElement('p')
@@ -110,8 +128,19 @@ export default {
         let form = e.target
         let data = new FormData(form)
         for(var pair of data.entries()) {
-            console.log(pair); 
+            console.log(pair)
         }
+
+        var self = this
+        var apiURL = 'http://elliandhugo.lv/includes/create-new.php'
+
+        this.$http.post(apiURL, data).then(function (response) {
+            console.log(response)
+            // this.$router.push('Login')
+        }, function (response) {
+            console.log('failed to load: ')
+            console.log(response)
+        })
     },
     textAreaAdjust: function() {
         let o = document.querySelector("#desc")

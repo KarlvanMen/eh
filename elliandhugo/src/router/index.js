@@ -134,31 +134,19 @@ export default new Router({
       }
     },
     {
-      path: '/publish/',
+      path: '/adlog/publish/',
       name: 'Pub',
-      components: {
-        default: Pub,
-        header: Header,
-        footerLinks: FooterLinks
-      }
+      component: Pub,
     },
     {
       path: '/adlog/',
       name: 'Login',
-      components: {
-        default: Login,
-        header: HeaderAd,
-        footerLinks: FooterAd
-      }
+      component: Login
     },
     {
       path: '/adlog/item/:id',
       name: 'ItemAd',
-      components: {
-        default: ItemAd,
-        header: HeaderAd,
-        footerLinks: FooterAd
-      }
+      component: ItemAd,
     },
     {
       path: '*',
